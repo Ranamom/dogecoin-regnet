@@ -8,5 +8,5 @@ if [ ! -d /data/node-2 ]; then
     mkdir /data/node-2
 fi
 
-rm /root/.dashcore 2> /dev/null
-ln -s /etc/conf/node-1 /root/.dashcore
+rm /root/.dogecoin 2> /dev/null
+ln -s /etc/conf/node-1 /root/.dogecoin

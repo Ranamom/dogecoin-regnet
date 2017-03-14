@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while sleep 2; do
-    ADDRESS=`dash-cli -conf=/etc/conf/node-1/dash.conf getnewaddress shop`
+    ADDRESS=`dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf getnewaddress shop`
     [[ ! -z $ADDRESS ]] && break;
     echo "* No address generated ($ADDRESS), continue waiting"
 done
@@ -9,22 +9,22 @@ done
 echo "* Generating coins..."
 sleep 2
 
-dash-cli -conf=/etc/conf/node-1/dash.conf generate 101 > /dev/null
-dash-cli -conf=/etc/conf/node-1/dash.conf generate 101 > /dev/null
+dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf generate 101 > /dev/null
+dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf generate 101 > /dev/null
 
 
-dash-cli -conf=/etc/conf/node-1/dash.conf sendtoaddress "$ADDRESS" 50
+dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf sendtoaddress "$ADDRESS" 50
 
 echo "sent generated coins to $ADDRESS"
 
-ADDRESS=`dash-cli -conf=/etc/conf/node-2/dash.conf getnewaddress customer`
-dash-cli -conf=/etc/conf/node-1/dash.conf sendtoaddress "$ADDRESS" 50
+ADDRESS=`dogecoin-cli -conf=/etc/conf/node-2/dogecoin.conf getnewaddress customer`
+dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf sendtoaddress "$ADDRESS" 50
 
 echo "sent generated coins to $ADDRESS"
 
 
 echo "* Generating another coins..."
-dash-cli -conf=/etc/conf/node-1/dash.conf generate 101  > /dev/null
+dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf generate 101  > /dev/null
 echo "* Done!"
 
 sleep 2

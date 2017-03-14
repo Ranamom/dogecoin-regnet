@@ -1,7 +1,7 @@
-Simple dash network with pre-generated dash coins
+Simple dogecoin network with pre-generated dogecoin coins
 ==================================================
 
-Docker container with 2 Dash Core nodes connected to each other made specialy for testing and developing applications for dash network. 
+Docker container with 2 dogecoin Core nodes connected to each other made specialy for testing and developing applications for dogecoin network. 
 
 **Real network differences**
 - testnet addresses have different prefixes
@@ -9,37 +9,37 @@ Docker container with 2 Dash Core nodes connected to each other made specialy fo
 
 **How to use container?**
 
-1. **docker run --name regnet analogic/dash-regnet** [-p 18332:18332] [-p 18334:18334] [-v /data:/data]
+1. **docker run --name regnet analogic/dogecoin-regnet** [-v /data:/data]
 2. ...wait couple seconds...
 3. develop! (or profit!)
 
 Node 1
 ------
-- event socket at port **19999** (walletnotify + blocknotify), see bellow 
-- XML-RPC at port **9998** with username "**dashrpc**" and password "**rpcpassword**"
-- pregenerated and confirmed 50 dashs at "**shop**" account
+- event socket at port **22666** (walletnotify + blocknotify), see bellow 
+- XML-RPC at port **22556** with username "**dogecoinrpc**" and password "**rpcpassword**"
+- pregenerated and confirmed 50 dogecoins at "**shop**" account
 - command line examples:
 
-    ```docker exec <container> dash-cli listaccounts```
+    ```docker exec <container> dogecoin-cli listaccounts```
     
-    ```docker exec <container> dash-cli sendfrom shop mveAy8hqEomzEFqBBq7gUCow5gMRgCosYt 3.14```
+    ```docker exec <container> dogecoin-cli sendfrom shop mveAy8hqEomzEFqBBq7gUCow5gMRgCosYt 3.14```
 
 Node 2
 ------
-- XML-RPC at port **9988** with username "**dashrpc**" and password "**rpcpassword**"
-- pregenerated and confirmed 50 dashs at "**customer**" account
+- XML-RPC at port **23556** with username "**dogecoinrpc**" and password "**rpcpassword**"
+- pregenerated and confirmed 50 dogecoins at "**customer**" account
 - command line examples:
 
-    ```docker exec <container> dash-cli -conf=/etc/conf/node-2/dash.conf listaccounts```
+    ```docker exec <container> dogecoin-cli -conf=/etc/conf/node-2/dogecoin.conf listaccounts```
     
-    ```docker exec <container> dash-cli -conf=/etc/conf/node-2/dash.conf sendfrom customer mveAy8hqEomzEFqBBq7gUCow5gMRgCosYt 3.14```
+    ```docker exec <container> dogecoin-cli -conf=/etc/conf/node-2/dogecoin.conf sendfrom customer mveAy8hqEomzEFqBBq7gUCow5gMRgCosYt 3.14```
     
 Event sock
 ----------
-- see *rootfs/etc/services.d/dashd-1/run* and *rootfs/etc/services.d/dashd-event-sock/run*
+- see *rootfs/etc/services.d/dogecoind-1/run* and *rootfs/etc/services.d/dogecoind-event-sock/run*
 - you can easily connect to socket with netcat:
     ``` 
-    $ nc <container-ip> 18335
+    $ nc <container-ip> 22666
     
     7440955a50384827cdde650ff8a67b7c802a9101c838eff90b42c4b3563be011
     42f18025b8e1cc56257a807caa2cd181a4b44efc562057db5339965908a593ad

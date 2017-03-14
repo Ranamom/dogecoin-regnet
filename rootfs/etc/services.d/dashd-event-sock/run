@@ -1,5 +1,5 @@
 #!/bin/sh
 
-mkfifo /var/run/dashd/events-in
-exec 8<>/var/run/dashd/events-in
-exec ncat -l -k --send-only 0.0.0.0 19999 < /var/run/dashd/events-in
+mkfifo /var/run/dogecoind/events-in
+exec 8<>/var/run/dogecoind/events-in
+exec ncat -l -k --send-only 0.0.0.0 22666 < /var/run/dogecoind/events-in

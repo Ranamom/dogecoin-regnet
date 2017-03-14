@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "* dogecoind node 2..."
+exec /usr/bin/dogecoind \
+    --printtoconsole \
+    -datadir=/data/node-2 \
+    -conf=/etc/conf/node-2/dogecoin.conf \
+    -server

@@ -2,5 +2,5 @@
 
 echo "* generating block..."
 
-dash-cli -conf=/etc/conf/node-1/dash.conf generate 1
+dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf generate 1
 sleep 10

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "* dogecoind node 1..."
+exec /usr/bin/dogecoind \
+    --printtoconsole \
+    -datadir=/data/node-1 \
+    -conf=/etc/conf/node-1/dogecoin.conf \
+    -server \
+    -walletnotify='/usr/bin/dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf gettransaction %s | tr "\n" " " | sed "s/$/\n/"  > /var/run/dogecoind/events-in' \
+    -blocknotify='echo %s > /var/run/dogecoind/events-in'

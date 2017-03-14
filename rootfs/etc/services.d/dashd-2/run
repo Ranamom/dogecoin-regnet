@@ -1,8 +1,0 @@
-#!/bin/sh
-
-echo "* Dashd node 2..."
-exec /usr/bin/dashd \
-    --printtoconsole \
-    -datadir=/data/node-2 \
-    -conf=/etc/conf/node-2/dash.conf \
-    -server
