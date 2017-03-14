@@ -13,9 +13,9 @@ dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf generate 101 > /dev/null
 dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf generate 101 > /dev/null
 
 
-dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf sendtoaddress "$ADDRESS" 10000000
+#dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf sendtoaddress "$ADDRESS" 10000000
 
-echo "sent generated coins to $ADDRESS"
+#echo "sent generated coins to $ADDRESS"
 
 ADDRESS=`dogecoin-cli -conf=/etc/conf/node-2/dogecoin.conf getnewaddress customer`
 dogecoin-cli -conf=/etc/conf/node-1/dogecoin.conf sendtoaddress "$ADDRESS" 80000000
